@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Sharing Website</title>
+</head>
+<body>
+  <h1>Photo Sharing Website</h1>
+  <p>This website allows you to upload photos, tag them, and view photos that other people have uploaded.</p>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="image">
+    <input type="text" name="tags" placeholder="Enter tags">
+    <input type="submit" value="Upload">
+  </form>
+  <h2>Photos</h2>
+  <ul>
+    {% for photo in photos %}
+      <li>
+        <img src="{{ photo.image }}" alt="{{ photo.tags }}">
+        <p>{{ photo.tags }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
